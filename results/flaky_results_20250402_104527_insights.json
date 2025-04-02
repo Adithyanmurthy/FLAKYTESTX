@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "source_file": "/Users/adithyan/Downloads/FlakyTestX/results/flaky_results_20250402_104527.json",
+    "mock_responses": false
+  },
+  "insights": {
+    "tests/test_sample1.py::TestSample1::test_async_api_call": {
+      "test_id": "tests/test_sample1.py::TestSample1::test_async_api_call",
+      "test_name": "test_async_api_call",
+      "module": "tests/test_sample1.py",
+      "root_cause": "Mock response: Unable to analyze the test due to insufficient data.",
+      "recommendations": "Mock response: Unable to analyze the test due to insufficient data.",
+      "code_fix": "Mock response: Unable to analyze the test due to insufficient data."
+    }
+  }
+}

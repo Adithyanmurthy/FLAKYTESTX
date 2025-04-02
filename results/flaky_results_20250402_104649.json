@@ -1,0 +1,351 @@
+{
+  "metadata": {
+    "timestamp": "2025-04-02T10:46:49.401724",
+    "iterations": 10,
+    "test_path": "tests",
+    "output_file": "/Users/adithyan/Downloads/FlakyTestX/results/flaky_results_20250402_104649.json"
+  },
+  "tests": {
+    "tests/test_sample1.py::TestSample1::test_addition": {
+      "id": "tests/test_sample1.py::TestSample1::test_addition",
+      "module": "tests/test_sample1.py",
+      "name": "test_addition",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    },
+    "tests/test_sample1.py::TestSample1::test_subtraction": {
+      "id": "tests/test_sample1.py::TestSample1::test_subtraction",
+      "module": "tests/test_sample1.py",
+      "name": "test_subtraction",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    },
+    "tests/test_sample1.py::TestSample1::test_square_function[1-1]": {
+      "id": "tests/test_sample1.py::TestSample1::test_square_function[1-1]",
+      "module": "tests/test_sample1.py",
+      "name": "test_square_function[1-1]",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    },
+    "tests/test_sample1.py::TestSample1::test_square_function[2-4]": {
+      "id": "tests/test_sample1.py::TestSample1::test_square_function[2-4]",
+      "module": "tests/test_sample1.py",
+      "name": "test_square_function[2-4]",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    },
+    "tests/test_sample1.py::TestSample1::test_square_function[3-9]": {
+      "id": "tests/test_sample1.py::TestSample1::test_square_function[3-9]",
+      "module": "tests/test_sample1.py",
+      "name": "test_square_function[3-9]",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    },
+    "tests/test_sample1.py::TestSample1::test_square_function[4-16]": {
+      "id": "tests/test_sample1.py::TestSample1::test_square_function[4-16]",
+      "module": "tests/test_sample1.py",
+      "name": "test_square_function[4-16]",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    },
+    "tests/test_sample1.py::TestSample1::test_async_api_call": {
+      "id": "tests/test_sample1.py::TestSample1::test_async_api_call",
+      "module": "tests/test_sample1.py",
+      "name": "test_async_api_call",
+      "results": [
+        false,
+        true,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true
+      ],
+      "passes": 5,
+      "failures": 5,
+      "flaky": true,
+      "flaky_score": 1.0,
+      "always_passes": false,
+      "always_fails": false,
+      "logs": [
+        {
+          "iteration": 0,
+          "log": "async def run_test():\n        try:\n            # No proper timeout handling - will cause flaky behavior\n>           result = await mock_api_call()\n\ntests/test_sample1.py:59: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    async def mock_api_call():\n        # Simulate variable network latency\n        await asyncio.sleep(random.uniform(0.01, 0.1))\n    \n        # Simulate race condition - random failures\n        if random.random() < 0.6:  # 60% chance of failure\n>           raise Exception(\"API timeout: The operation took too long to complete\")\nE           Exception: API timeout: The operation took too long to complete\n\ntests/test_sample1.py:51: Exception\n\nDuring handling of the above exception, another exception occurred:\n\nself = <tests.test_sample1.TestSample1 object at 0x102b3a690>\n\n    @pytest.mark.flaky\n    def test_async_api_call(self):\n        \"\"\"\n        A flaky test with a race condition in an asynchronous call.\n    \n        This test is intentionally flaky and will randomly fail about 60% of the time\n        due to a simulated race condition in the async API call.\n        \"\"\"\n        # Simulate an asynchronous API call with race condition\n        async def mock_api_call():\n            # Simulate variable network latency\n            await asyncio.sleep(random.uniform(0.01, 0.1))\n    \n            # Simulate race condition - random failures\n            if random.random() < 0.6:  # 60% chance of failure\n                raise Exception(\"API timeout: The operation took too long to complete\")\n    \n            return {\"status\": \"success\", \"data\": [1, 2, 3]}\n    \n        # Run the async function and check result\n        async def run_test():\n            try:\n                # No proper timeout handling - will cause flaky behavior\n                result = await mock_api_call()\n                assert result[\"status\"] == \"success\"\n                assert len(result[\"data\"]) > 0\n            except Exception as e:\n                pytest.fail(f\"API call failed: {str(e)}\")\n    \n        # Execute async test\n>       asyncio.run(run_test())\n\ntests/test_sample1.py:66: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/runners.py:190: in run\n    return runner.run(main)\n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/runners.py:118: in run\n    return self._loop.run_until_complete(task)\n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/base_events.py:653: in run_until_complete\n    return future.result()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    async def run_test():\n        try:\n            # No proper timeout handling - will cause flaky behavior\n            result = await mock_api_call()\n            assert result[\"status\"] == \"success\"\n            assert len(result[\"data\"]) > 0\n        except Exception as e:\n>           pytest.fail(f\"API call failed: {str(e)}\")\nE           Failed: API call failed: API timeout: The operation took too long to complete\n\ntests/test_sample1.py:63: Failed"
+        },
+        {
+          "iteration": 2,
+          "log": "async def run_test():\n        try:\n            # No proper timeout handling - will cause flaky behavior\n>           result = await mock_api_call()\n\ntests/test_sample1.py:59: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    async def mock_api_call():\n        # Simulate variable network latency\n        await asyncio.sleep(random.uniform(0.01, 0.1))\n    \n        # Simulate race condition - random failures\n        if random.random() < 0.6:  # 60% chance of failure\n>           raise Exception(\"API timeout: The operation took too long to complete\")\nE           Exception: API timeout: The operation took too long to complete\n\ntests/test_sample1.py:51: Exception\n\nDuring handling of the above exception, another exception occurred:\n\nself = <tests.test_sample1.TestSample1 object at 0x104e5a3d0>\n\n    @pytest.mark.flaky\n    def test_async_api_call(self):\n        \"\"\"\n        A flaky test with a race condition in an asynchronous call.\n    \n        This test is intentionally flaky and will randomly fail about 60% of the time\n        due to a simulated race condition in the async API call.\n        \"\"\"\n        # Simulate an asynchronous API call with race condition\n        async def mock_api_call():\n            # Simulate variable network latency\n            await asyncio.sleep(random.uniform(0.01, 0.1))\n    \n            # Simulate race condition - random failures\n            if random.random() < 0.6:  # 60% chance of failure\n                raise Exception(\"API timeout: The operation took too long to complete\")\n    \n            return {\"status\": \"success\", \"data\": [1, 2, 3]}\n    \n        # Run the async function and check result\n        async def run_test():\n            try:\n                # No proper timeout handling - will cause flaky behavior\n                result = await mock_api_call()\n                assert result[\"status\"] == \"success\"\n                assert len(result[\"data\"]) > 0\n            except Exception as e:\n                pytest.fail(f\"API call failed: {str(e)}\")\n    \n        # Execute async test\n>       asyncio.run(run_test())\n\ntests/test_sample1.py:66: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/runners.py:190: in run\n    return runner.run(main)\n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/runners.py:118: in run\n    return self._loop.run_until_complete(task)\n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/base_events.py:653: in run_until_complete\n    return future.result()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    async def run_test():\n        try:\n            # No proper timeout handling - will cause flaky behavior\n            result = await mock_api_call()\n            assert result[\"status\"] == \"success\"\n            assert len(result[\"data\"]) > 0\n        except Exception as e:\n>           pytest.fail(f\"API call failed: {str(e)}\")\nE           Failed: API call failed: API timeout: The operation took too long to complete\n\ntests/test_sample1.py:63: Failed"
+        },
+        {
+          "iteration": 5,
+          "log": "async def run_test():\n        try:\n            # No proper timeout handling - will cause flaky behavior\n>           result = await mock_api_call()\n\ntests/test_sample1.py:59: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    async def mock_api_call():\n        # Simulate variable network latency\n        await asyncio.sleep(random.uniform(0.01, 0.1))\n    \n        # Simulate race condition - random failures\n        if random.random() < 0.6:  # 60% chance of failure\n>           raise Exception(\"API timeout: The operation took too long to complete\")\nE           Exception: API timeout: The operation took too long to complete\n\ntests/test_sample1.py:51: Exception\n\nDuring handling of the above exception, another exception occurred:\n\nself = <tests.test_sample1.TestSample1 object at 0x104ff6e90>\n\n    @pytest.mark.flaky\n    def test_async_api_call(self):\n        \"\"\"\n        A flaky test with a race condition in an asynchronous call.\n    \n        This test is intentionally flaky and will randomly fail about 60% of the time\n        due to a simulated race condition in the async API call.\n        \"\"\"\n        # Simulate an asynchronous API call with race condition\n        async def mock_api_call():\n            # Simulate variable network latency\n            await asyncio.sleep(random.uniform(0.01, 0.1))\n    \n            # Simulate race condition - random failures\n            if random.random() < 0.6:  # 60% chance of failure\n                raise Exception(\"API timeout: The operation took too long to complete\")\n    \n            return {\"status\": \"success\", \"data\": [1, 2, 3]}\n    \n        # Run the async function and check result\n        async def run_test():\n            try:\n                # No proper timeout handling - will cause flaky behavior\n                result = await mock_api_call()\n                assert result[\"status\"] == \"success\"\n                assert len(result[\"data\"]) > 0\n            except Exception as e:\n                pytest.fail(f\"API call failed: {str(e)}\")\n    \n        # Execute async test\n>       asyncio.run(run_test())\n\ntests/test_sample1.py:66: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/runners.py:190: in run\n    return runner.run(main)\n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/runners.py:118: in run\n    return self._loop.run_until_complete(task)\n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/base_events.py:653: in run_until_complete\n    return future.result()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    async def run_test():\n        try:\n            # No proper timeout handling - will cause flaky behavior\n            result = await mock_api_call()\n            assert result[\"status\"] == \"success\"\n            assert len(result[\"data\"]) > 0\n        except Exception as e:\n>           pytest.fail(f\"API call failed: {str(e)}\")\nE           Failed: API call failed: API timeout: The operation took too long to complete\n\ntests/test_sample1.py:63: Failed"
+        },
+        {
+          "iteration": 6,
+          "log": "async def run_test():\n        try:\n            # No proper timeout handling - will cause flaky behavior\n>           result = await mock_api_call()\n\ntests/test_sample1.py:59: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    async def mock_api_call():\n        # Simulate variable network latency\n        await asyncio.sleep(random.uniform(0.01, 0.1))\n    \n        # Simulate race condition - random failures\n        if random.random() < 0.6:  # 60% chance of failure\n>           raise Exception(\"API timeout: The operation took too long to complete\")\nE           Exception: API timeout: The operation took too long to complete\n\ntests/test_sample1.py:51: Exception\n\nDuring handling of the above exception, another exception occurred:\n\nself = <tests.test_sample1.TestSample1 object at 0x104d69ed0>\n\n    @pytest.mark.flaky\n    def test_async_api_call(self):\n        \"\"\"\n        A flaky test with a race condition in an asynchronous call.\n    \n        This test is intentionally flaky and will randomly fail about 60% of the time\n        due to a simulated race condition in the async API call.\n        \"\"\"\n        # Simulate an asynchronous API call with race condition\n        async def mock_api_call():\n            # Simulate variable network latency\n            await asyncio.sleep(random.uniform(0.01, 0.1))\n    \n            # Simulate race condition - random failures\n            if random.random() < 0.6:  # 60% chance of failure\n                raise Exception(\"API timeout: The operation took too long to complete\")\n    \n            return {\"status\": \"success\", \"data\": [1, 2, 3]}\n    \n        # Run the async function and check result\n        async def run_test():\n            try:\n                # No proper timeout handling - will cause flaky behavior\n                result = await mock_api_call()\n                assert result[\"status\"] == \"success\"\n                assert len(result[\"data\"]) > 0\n            except Exception as e:\n                pytest.fail(f\"API call failed: {str(e)}\")\n    \n        # Execute async test\n>       asyncio.run(run_test())\n\ntests/test_sample1.py:66: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/runners.py:190: in run\n    return runner.run(main)\n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/runners.py:118: in run\n    return self._loop.run_until_complete(task)\n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/base_events.py:653: in run_until_complete\n    return future.result()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    async def run_test():\n        try:\n            # No proper timeout handling - will cause flaky behavior\n            result = await mock_api_call()\n            assert result[\"status\"] == \"success\"\n            assert len(result[\"data\"]) > 0\n        except Exception as e:\n>           pytest.fail(f\"API call failed: {str(e)}\")\nE           Failed: API call failed: API timeout: The operation took too long to complete\n\ntests/test_sample1.py:63: Failed"
+        },
+        {
+          "iteration": 8,
+          "log": "async def run_test():\n        try:\n            # No proper timeout handling - will cause flaky behavior\n>           result = await mock_api_call()\n\ntests/test_sample1.py:59: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    async def mock_api_call():\n        # Simulate variable network latency\n        await asyncio.sleep(random.uniform(0.01, 0.1))\n    \n        # Simulate race condition - random failures\n        if random.random() < 0.6:  # 60% chance of failure\n>           raise Exception(\"API timeout: The operation took too long to complete\")\nE           Exception: API timeout: The operation took too long to complete\n\ntests/test_sample1.py:51: Exception\n\nDuring handling of the above exception, another exception occurred:\n\nself = <tests.test_sample1.TestSample1 object at 0x102bfa250>\n\n    @pytest.mark.flaky\n    def test_async_api_call(self):\n        \"\"\"\n        A flaky test with a race condition in an asynchronous call.\n    \n        This test is intentionally flaky and will randomly fail about 60% of the time\n        due to a simulated race condition in the async API call.\n        \"\"\"\n        # Simulate an asynchronous API call with race condition\n        async def mock_api_call():\n            # Simulate variable network latency\n            await asyncio.sleep(random.uniform(0.01, 0.1))\n    \n            # Simulate race condition - random failures\n            if random.random() < 0.6:  # 60% chance of failure\n                raise Exception(\"API timeout: The operation took too long to complete\")\n    \n            return {\"status\": \"success\", \"data\": [1, 2, 3]}\n    \n        # Run the async function and check result\n        async def run_test():\n            try:\n                # No proper timeout handling - will cause flaky behavior\n                result = await mock_api_call()\n                assert result[\"status\"] == \"success\"\n                assert len(result[\"data\"]) > 0\n            except Exception as e:\n                pytest.fail(f\"API call failed: {str(e)}\")\n    \n        # Execute async test\n>       asyncio.run(run_test())\n\ntests/test_sample1.py:66: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/runners.py:190: in run\n    return runner.run(main)\n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/runners.py:118: in run\n    return self._loop.run_until_complete(task)\n../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/base_events.py:653: in run_until_complete\n    return future.result()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    async def run_test():\n        try:\n            # No proper timeout handling - will cause flaky behavior\n            result = await mock_api_call()\n            assert result[\"status\"] == \"success\"\n            assert len(result[\"data\"]) > 0\n        except Exception as e:\n>           pytest.fail(f\"API call failed: {str(e)}\")\nE           Failed: API call failed: API timeout: The operation took too long to complete\n\ntests/test_sample1.py:63: Failed"
+        }
+      ]
+    },
+    "tests/test_sample1.py::TestSample1::test_mock_database": {
+      "id": "tests/test_sample1.py::TestSample1::test_mock_database",
+      "module": "tests/test_sample1.py",
+      "name": "test_mock_database",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    },
+    "tests/test_sample2.py::TestSample2::test_multiplication": {
+      "id": "tests/test_sample2.py::TestSample2::test_multiplication",
+      "module": "tests/test_sample2.py",
+      "name": "test_multiplication",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    },
+    "tests/test_sample2.py::TestSample2::test_file_operations": {
+      "id": "tests/test_sample2.py::TestSample2::test_file_operations",
+      "module": "tests/test_sample2.py",
+      "name": "test_file_operations",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    },
+    "tests/test_sample2.py::TestSample2::test_database_query": {
+      "id": "tests/test_sample2.py::TestSample2::test_database_query",
+      "module": "tests/test_sample2.py",
+      "name": "test_database_query",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    },
+    "tests/test_sample2.py::TestSample2::test_counter_increment": {
+      "id": "tests/test_sample2.py::TestSample2::test_counter_increment",
+      "module": "tests/test_sample2.py",
+      "name": "test_counter_increment",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    },
+    "tests/test_sample2.py::TestSample2::test_flaky_counter_increment": {
+      "id": "tests/test_sample2.py::TestSample2::test_flaky_counter_increment",
+      "module": "tests/test_sample2.py",
+      "name": "test_flaky_counter_increment",
+      "results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passes": 10,
+      "failures": 0,
+      "flaky": false,
+      "flaky_score": 0.0,
+      "always_passes": true,
+      "always_fails": false,
+      "logs": []
+    }
+  },
+  "summary": {
+    "total_tests": 13,
+    "flaky_tests": 1,
+    "stable_tests": 12,
+    "always_pass": 12,
+    "always_fail": 0,
+    "suite_stability_percentage": 92.31
+  }
+}

@@ -1,0 +1,94 @@
+2025-04-02 10:35:37,056 - __main__ - INFO - Starting flaky test detection on tests/
+2025-04-02 10:35:37,061 - flaky_detector - INFO - Starting test detection with 10 iterations
+2025-04-02 10:35:37,063 - flaky_detector - INFO - Testing path: tests
+2025-04-02 10:35:37,086 - flaky_detector - INFO - Starting iteration 1/10
+2025-04-02 10:35:37,830 - flaky_detector - ERROR - Results file not found for iteration 1
+2025-04-02 10:35:38,336 - flaky_detector - INFO - Starting iteration 2/10
+2025-04-02 10:35:38,591 - flaky_detector - ERROR - Results file not found for iteration 2
+2025-04-02 10:35:39,100 - flaky_detector - INFO - Starting iteration 3/10
+2025-04-02 10:35:39,359 - flaky_detector - ERROR - Results file not found for iteration 3
+2025-04-02 10:35:39,868 - flaky_detector - INFO - Starting iteration 4/10
+2025-04-02 10:35:40,131 - flaky_detector - ERROR - Results file not found for iteration 4
+2025-04-02 10:35:40,634 - flaky_detector - INFO - Starting iteration 5/10
+2025-04-02 10:35:40,885 - flaky_detector - ERROR - Results file not found for iteration 5
+2025-04-02 10:35:41,393 - flaky_detector - INFO - Starting iteration 6/10
+2025-04-02 10:35:41,661 - flaky_detector - ERROR - Results file not found for iteration 6
+2025-04-02 10:35:42,167 - flaky_detector - INFO - Starting iteration 7/10
+2025-04-02 10:35:42,426 - flaky_detector - ERROR - Results file not found for iteration 7
+2025-04-02 10:35:42,933 - flaky_detector - INFO - Starting iteration 8/10
+2025-04-02 10:35:43,185 - flaky_detector - ERROR - Results file not found for iteration 8
+2025-04-02 10:35:43,691 - flaky_detector - INFO - Starting iteration 9/10
+2025-04-02 10:35:43,944 - flaky_detector - ERROR - Results file not found for iteration 9
+2025-04-02 10:35:44,452 - flaky_detector - INFO - Starting iteration 10/10
+2025-04-02 10:35:44,711 - flaky_detector - ERROR - Results file not found for iteration 10
+2025-04-02 10:45:27,235 - __main__ - INFO - Starting flaky test detection on tests/
+2025-04-02 10:45:27,239 - flaky_detector - INFO - Starting test detection with 10 iterations
+2025-04-02 10:45:27,240 - flaky_detector - INFO - Testing path: tests
+2025-04-02 10:45:27,254 - flaky_detector - INFO - Starting iteration 1/10
+2025-04-02 10:45:28,392 - flaky_detector - INFO - Starting iteration 2/10
+2025-04-02 10:45:29,464 - flaky_detector - INFO - Starting iteration 3/10
+2025-04-02 10:45:30,444 - flaky_detector - INFO - Starting iteration 4/10
+2025-04-02 10:45:31,420 - flaky_detector - INFO - Starting iteration 5/10
+2025-04-02 10:45:32,427 - flaky_detector - INFO - Starting iteration 6/10
+2025-04-02 10:45:33,518 - flaky_detector - INFO - Starting iteration 7/10
+2025-04-02 10:45:34,500 - flaky_detector - INFO - Starting iteration 8/10
+2025-04-02 10:45:35,511 - flaky_detector - INFO - Starting iteration 9/10
+2025-04-02 10:45:36,554 - flaky_detector - INFO - Starting iteration 10/10
+2025-04-02 10:45:37,454 - flaky_detector - INFO - Results saved to /Users/adithyan/Downloads/FlakyTestX/results/flaky_results_20250402_104527.json
+2025-04-02 10:45:38,946 - flaky_detector - INFO - Flakiness chart saved to /Users/adithyan/Downloads/FlakyTestX/results/charts/flakiness_scores.png
+2025-04-02 10:45:39,065 - flaky_detector - INFO - Stability chart saved to /Users/adithyan/Downloads/FlakyTestX/results/charts/test_stability.png
+2025-04-02 10:45:39,066 - flaky_detector - INFO - Report generated in /Users/adithyan/Downloads/FlakyTestX/results/charts
+2025-04-02 10:45:39,067 - __main__ - INFO - Flaky test detection completed. Found 1 flaky tests.
+2025-04-02 10:45:39,068 - __main__ - INFO - Starting AI analysis on /Users/adithyan/Downloads/FlakyTestX/results/flaky_results_20250402_104527.json
+2025-04-02 10:45:39,069 - ai_insight_generator - ERROR - Failed to initialize OpenAI client: Client.__init__() got an unexpected keyword argument 'proxies'
+2025-04-02 10:45:39,070 - ai_insight_generator - INFO - Generating insights for 1 flaky tests.
+2025-04-02 10:45:39,071 - ai_insight_generator - ERROR - Error calling OpenAI API: 'NoneType' object has no attribute 'chat'
+2025-04-02 10:45:39,072 - ai_insight_generator - INFO - Insights saved to /Users/adithyan/Downloads/FlakyTestX/results/flaky_results_20250402_104527_insights.json
+2025-04-02 10:45:39,074 - __main__ - INFO - AI analysis completed. Generated insights for 1 tests.
+2025-04-02 10:45:39,074 - __main__ - INFO - Launching dashboard
+2025-04-02 10:45:50,128 - __main__ - INFO - Dashboard launched. Access at http://localhost:8501
+2025-04-02 10:46:49,398 - __main__ - INFO - Starting flaky test detection on tests/
+2025-04-02 10:46:49,401 - flaky_detector - INFO - Starting test detection with 10 iterations
+2025-04-02 10:46:49,402 - flaky_detector - INFO - Testing path: tests
+2025-04-02 10:46:49,413 - flaky_detector - INFO - Starting iteration 1/10
+2025-04-02 10:46:50,604 - flaky_detector - INFO - Starting iteration 2/10
+2025-04-02 10:46:51,685 - flaky_detector - INFO - Starting iteration 3/10
+2025-04-02 10:46:52,628 - flaky_detector - INFO - Starting iteration 4/10
+2025-04-02 10:46:53,660 - flaky_detector - INFO - Starting iteration 5/10
+2025-04-02 10:46:54,550 - flaky_detector - INFO - Starting iteration 6/10
+2025-04-02 10:46:55,497 - flaky_detector - INFO - Starting iteration 7/10
+2025-04-02 10:46:56,624 - flaky_detector - INFO - Starting iteration 8/10
+2025-04-02 10:46:57,551 - flaky_detector - INFO - Starting iteration 9/10
+2025-04-02 10:46:58,669 - flaky_detector - INFO - Starting iteration 10/10
+2025-04-02 10:46:59,596 - flaky_detector - INFO - Results saved to /Users/adithyan/Downloads/FlakyTestX/results/flaky_results_20250402_104649.json
+2025-04-02 10:46:59,982 - flaky_detector - INFO - Flakiness chart saved to /Users/adithyan/Downloads/FlakyTestX/results/charts/flakiness_scores.png
+2025-04-02 10:47:00,110 - flaky_detector - INFO - Stability chart saved to /Users/adithyan/Downloads/FlakyTestX/results/charts/test_stability.png
+2025-04-02 10:47:00,112 - flaky_detector - INFO - Report generated in /Users/adithyan/Downloads/FlakyTestX/results/charts
+2025-04-02 10:47:00,113 - __main__ - INFO - Flaky test detection completed. Found 1 flaky tests.
+2025-04-02 10:47:00,114 - __main__ - INFO - Starting AI analysis on /Users/adithyan/Downloads/FlakyTestX/results/flaky_results_20250402_104649.json
+2025-04-02 10:47:00,115 - ai_insight_generator - ERROR - Failed to initialize OpenAI client: Client.__init__() got an unexpected keyword argument 'proxies'
+2025-04-02 10:47:00,116 - ai_insight_generator - INFO - Generating insights for 1 flaky tests.
+2025-04-02 10:47:00,117 - ai_insight_generator - ERROR - Error calling OpenAI API: 'NoneType' object has no attribute 'chat'
+2025-04-02 10:47:00,118 - ai_insight_generator - INFO - Insights saved to /Users/adithyan/Downloads/FlakyTestX/results/flaky_results_20250402_104649_insights.json
+2025-04-02 10:47:00,119 - __main__ - INFO - AI analysis completed. Generated insights for 1 tests.
+2025-04-02 10:47:00,121 - __main__ - INFO - Launching dashboard
+2025-04-02 10:47:00,973 - __main__ - INFO - Dashboard launched. Access at http://localhost:8501
+2025-04-02 10:54:27,645 - __main__ - INFO - Starting test detection with 5 iterations
+2025-04-02 10:54:27,648 - __main__ - INFO - Testing path: tests
+2025-04-02 10:54:27,660 - __main__ - INFO - Starting iteration 1/5
+2025-04-02 10:54:28,702 - __main__ - INFO - Starting iteration 2/5
+2025-04-02 10:54:29,828 - __main__ - INFO - Starting iteration 3/5
+2025-04-02 10:54:30,859 - __main__ - INFO - Starting iteration 4/5
+2025-04-02 10:54:31,906 - __main__ - INFO - Starting iteration 5/5
+2025-04-02 10:54:32,977 - __main__ - INFO - Results saved to /Users/adithyan/Downloads/FlakyTestX/results/flaky_results_20250402_105427.json
+2025-04-02 10:54:33,313 - __main__ - INFO - Flakiness chart saved to /Users/adithyan/Downloads/FlakyTestX/results/charts/flakiness_scores.png
+2025-04-02 10:54:33,425 - __main__ - INFO - Stability chart saved to /Users/adithyan/Downloads/FlakyTestX/results/charts/test_stability.png
+2025-04-02 10:54:33,426 - __main__ - INFO - Report generated in /Users/adithyan/Downloads/FlakyTestX/results/charts
+2025-04-02 10:56:17,279 - __main__ - ERROR - Error loading results from results/flaky_results_20250402_123456.json: [Errno 2] No such file or directory: 'results/flaky_results_20250402_123456.json'
+2025-04-02 10:56:17,283 - __main__ - INFO - No flaky tests found in the results.
+2025-04-02 10:58:08,876 - __main__ - INFO - Generating insights for 1 flaky tests.
+2025-04-02 10:58:08,879 - __main__ - ERROR - Error calling OpenAI API: 'NoneType' object has no attribute 'chat'
+2025-04-02 10:58:08,880 - __main__ - INFO - Insights saved to /Users/adithyan/Downloads/FlakyTestX/results/flaky_results_20250402_105427_insights.json
+2025-04-02 10:59:01,373 - __main__ - INFO - Generating insights for 1 flaky tests.
+2025-04-02 10:59:01,376 - __main__ - ERROR - Error calling OpenAI API: 'NoneType' object has no attribute 'chat'
+2025-04-02 10:59:01,377 - __main__ - INFO - Insights saved to /Users/adithyan/Downloads/FlakyTestX/results/flaky_results_20250402_105427_insights.json
