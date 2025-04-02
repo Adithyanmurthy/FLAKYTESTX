@@ -7,78 +7,153 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> A submission for the Kyiv QA Automation Summit 2025
+> A solution for the Kyiv QA Automation Summit 2025
 
-## 🔍 Problem
+## What is FlakyTestX?
 
-Flaky tests are a persistent headache in test automation, wasting developer time and eroding confidence in test suites. These tests unpredictably pass and fail without actual code changes, making them difficult to identify and fix.
+FlakyTestX is a powerful tool that automatically detects flaky tests in your test suite and uses AI to provide actionable recommendations for fixing them. Flaky tests (those that inconsistently pass or fail without code changes) waste developer time and erode confidence in test suites. FlakyTestX transforms this persistent challenge into a solvable problem.
 
-## 💡 Solution
+## Features
 
-FlakyTestX automatically detects flaky tests by running test suites multiple times and using AI to analyze patterns in failed test executions. It provides:
+- 🔄 **Automated Flaky Test Detection**: Runs your test suite multiple times to identify inconsistent behavior
+- 📊 **Statistical Analysis**: Calculates a flakiness score for each test based on pass/fail patterns
+- 🤖 **AI-Powered Root Cause Analysis**: Examines test code and failure patterns to determine why tests are flaky
+- 🛠️ **Actionable Fix Recommendations**: Provides specific suggestions and code examples to fix each flaky test
+- 📈 **Interactive Dashboard**: Visualizes test stability and flakiness patterns for easy exploration
 
-- **Detection**: Identifies which tests are flaky and assigns a flakiness score
-- **Analysis**: Uses AI to understand why tests are flaky
-- **Recommendations**: Generates targeted suggestions to fix each flaky test
-- **Visualization**: Presents results in an intuitive dashboard
+## Prerequisites
 
-## 🚀 Features
+- Python 3.8 or higher
+- Pytest-based test suite
+- (Optional) OpenAI API key for enhanced AI insights
 
-- 🔄 Automated test runner that executes tests multiple times
-- 📊 Statistical analysis of test reliability
-- 🤖 AI-powered root cause analysis
-- 🛠️ Concrete fix suggestions for each flaky test
-- 📈 Interactive dashboard to visualize flakiness patterns
-- 📝 Comprehensive reporting capabilities
-
-## 🛠️ Installation
+## Installation
 
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/flakytestx.git
 cd flakytestx
 
-# Create and activate a virtual environment (optional but recommended)
+# Create and activate a virtual environment (recommended)
 python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 ```
 
-## ⚙️ Configuration
+## Configuration
 
 Create a `.env` file in the project root with the following variables:
 
 ```
 OPENAI_API_KEY=your_openai_api_key_here  # Optional, will use mock responses if not provided
-TEST_ITERATIONS=5                         # Number of times to run each test
-AI_ENABLED=true                           # Set to false to disable AI features
+TEST_ITERATIONS=10                        # Default number of test iterations
+AI_ENABLED=true                           # Enable/disable AI features
 ```
 
-## 📋 Usage
+## Usage
 
-### Command Line Interface
+### Quick Start
+
+Run a complete analysis of your test suite and view results in the dashboard:
 
 ```bash
-# Run the entire pipeline (detection + analysis + suggestions)
-python run_all.py --path path/to/tests
+python run_all.py --path path/to/tests/ --iterations 10 --dashboard
+```
 
-# Run just the flaky test detection
-python flaky_detector.py --path path/to/tests --iterations 5
+### Component Usage
 
-# Generate AI insights for previously detected flaky tests
+FlakyTestX can be used in several ways depending on your needs:
+
+#### 1. Detect Flaky Tests
+
+Identify which tests in your suite are flaky:
+
+```bash
+python flaky_detector.py --path path/to/tests/ --iterations 5
+```
+
+#### 2. Generate AI Insights
+
+Analyze previously identified flaky tests:
+
+```bash
 python ai_insight_generator.py --results path/to/results.json
 ```
 
-### Dashboard
+#### 3. View Results Dashboard
+
+Explore test results through an interactive dashboard:
 
 ```bash
-# Launch the Streamlit dashboard
 python -m streamlit run dashboard.py
 ```
 
-## 📊 Sample Output
+## Project Structure
+
+```
+FlakyTestX/
+├── flaky_detector.py      # Detects flaky tests through multiple runs
+├── ai_insight_generator.py # Analyzes flaky tests with AI
+├── run_all.py             # Main entry point for full pipeline
+├── dashboard.py           # Streamlit dashboard for visualization
+├── config.py              # Configuration settings
+├── utils/                 # Utility functions
+│   ├── __init__.py
+│   └── logger.py          # Logging utilities
+├── tests/                 # Sample test files
+│   ├── test_sample1.py    # Example tests including flaky ones
+│   └── test_sample2.py    # More example tests
+└── results/               # Output directory for test results
+```
+
+## Command Line Arguments
+
+### run_all.py
+
+```
+--path, -p         Path to test directory or file (required)
+--iterations, -i   Number of test iterations (default: from config)
+--output, -o       Custom output file path (optional)
+--dashboard, -d    Launch dashboard after analysis
+--no-ai            Disable AI analysis
+```
+
+### flaky_detector.py
+
+```
+--path, -p         Path to test directory or file (required)
+--iterations, -i   Number of test iterations (default: from config)
+--output, -o       Custom output file path (optional)
+```
+
+### ai_insight_generator.py
+
+```
+--results, -r      Path to results JSON file (required)
+--openai-api-key   OpenAI API key (overrides env variable)
+--openai-model     OpenAI model to use (default: from config)
+--mock             Use mock responses instead of actual API calls
+```
+
+## Understanding the Results
+
+### Flakiness Score
+
+Tests are assigned a flakiness score from 0.0 to 1.0:
+- **0.0**: The test consistently passes or fails (stable)
+- **~1.0**: The test fails approximately 50% of the time (maximally flaky)
+
+### AI Insights
+
+For each flaky test, the AI generates:
+- Root cause analysis
+- Likely reason for flakiness
+- Specific recommendations to fix the test
+- Sample code fix implementation
+
+## Example Output
 
 ```
 ================================
@@ -94,37 +169,45 @@ FlakyTestX Analysis Results
 1. test_async_api_call (test_sample1.py) - Flakiness: 60%
    └─ AI Insight: Race condition in asynchronous API call
    └─ Suggestion: Add proper awaiting with timeout and implement retry mechanism
-
-2. test_database_query (test_sample2.py) - Flakiness: 40%
-   └─ AI Insight: Database connection not properly closed between test runs
-   └─ Suggestion: Use connection pooling and ensure proper teardown in fixture
-
-3. test_file_operations (test_sample2.py) - Flakiness: 30%
-   └─ AI Insight: File locks causing intermittent failures
-   └─ Suggestion: Implement retry pattern with exponential backoff
 ```
 
-## 🔧 Architecture
+## Troubleshooting
 
-FlakyTestX consists of several modular components:
+### Missing Dependencies
 
-1. **Flaky Detector**: Executes test suites multiple times to identify flaky tests
-2. **AI Insight Generator**: Analyzes test failures using AI to determine root causes
-3. **Dashboard**: Visualizes results and provides an interface for exploring solutions
-4. **Utilities**: Shared logging and helper functions
+If you encounter errors about missing modules, ensure you've installed all dependencies:
 
-## 📚 Contributing
+```bash
+pip install -r requirements.txt
+```
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+### OpenAI API Issues
 
-## 📝 License
+If you see "mock responses" in your AI insights:
+1. Verify your OpenAI API key is correctly set in the `.env` file
+2. Check your API usage limits and billing status
+
+### Dashboard Not Loading
+
+If the dashboard fails to launch:
+1. Ensure Streamlit is installed: `pip install streamlit`
+2. Try running it manually: `python -m streamlit run dashboard.py`
+3. If port 8501 is in use, specify a different port: `streamlit run dashboard.py --server.port 8502`
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request.
+
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🧑‍💻 Authors
+## Acknowledgements
 
-- Your Name - [Your GitHub Profile](https://github.com/yourusername)
+- The OpenAI team for providing the API that powers our AI insights
+- The Pytest development team for their excellent testing framework
+- The Streamlit team for their powerful data visualization platform
 
 ---
 
-Developed with ❤️ for the Kyiv QA Automation Summit 2025
+Built with ❤️ for the Kyiv QA Automation Summit 2025
